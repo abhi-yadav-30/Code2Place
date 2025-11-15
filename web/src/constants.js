@@ -1,0 +1,5 @@
+export const DiffLevelToScoreMapping ={
+    1:10,
+    2:20,
+    3:40
+}
