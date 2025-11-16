@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 
-
-
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -31,6 +29,17 @@ const userSchema = new mongoose.Schema(
 
     uploadedQuestions: [
       { type: mongoose.Schema.Types.ObjectId, ref: "Question" },
+    ],
+    interviewTranscriptions: [
+      {
+        createdAt: { type: Date, default: Date.now },
+        transcription: [
+          {
+            question: { type: String },
+            feedback: { type: String },
+          },
+        ],
+      },
     ],
   },
   { timestamps: true }

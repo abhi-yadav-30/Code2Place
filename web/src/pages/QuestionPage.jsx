@@ -6,6 +6,7 @@ import DescriptionHeader from "../components/DescriptionHeader";
 import Description from "../components/Description";
 import Console from "../components/Console";
 import { useParams } from "react-router-dom";
+import Submissions from "../components/Submissions";
 
 const QuestionPage = () => {
   const [code, setCode] = useState(
@@ -70,11 +71,7 @@ const QuestionPage = () => {
           {activeTab === "description" ? (
             <Description question={question} />
           ) : (
-            <div className="p-4 text-white">
-              {/* You can replace this with a Submissions component */}
-              <h1 className="text-lg font-semibold mb-3">Your Submissions</h1>
-              <p className="text-gray-300">Show user submissions here...</p>
-            </div>
+            <Submissions quesId={id}/>
           )}
         </div>
 

@@ -19,6 +19,7 @@ import QuestionPage from "./pages/QuestionPage";
 import Navbar from "./components/Navbar";
 import AuthPage from "./pages/AuthPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AIinterviewPage from "./pages/AIinterviewPage";
 
 function App() {
 
@@ -26,7 +27,6 @@ function App() {
     <div className="pt-16 h-screen overflow-hidden">
       <Router>
         <Navbar />
-
         <div>
           {/* padding so content does not hide behind navbar */}
           <Routes>
@@ -44,6 +44,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <QuestionPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/AI-Interview"
+              element={
+                <ProtectedRoute>
+                  <AIinterviewPage />
                 </ProtectedRoute>
               }
             />

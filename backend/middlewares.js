@@ -12,6 +12,7 @@ export const auth = (req, res, next) => {
 
     next();
   } catch (err) {
+    console.log(err);
     res.status(401).json({ msg: "Invalid token" });
   }
 };

@@ -23,14 +23,20 @@ const submissionSchema = new mongoose.Schema(
     memory: Number,
 
     status: {
-      type: Boolean, // true = pass, false = fail
+      isPassed: { type: Boolean , }, // true = pass, false = fail
       verdict: {
         // detailed reason
         type: String,
-        enum: ["AC", "WA", "TLE", "RE", "CE"],
-        default: "WA",
+        enum: [
+          "Accepted",
+          "Wrong Answer",
+          "Time Limit Exceeded",
+          "Runtime Error",
+          "Compilation Error",
+          "Unknown Error",
+        ],
+        default: "Wrong Answer",
       },
-      required: true,
     },
 
     source_code: {

@@ -7,12 +7,10 @@ import questionRoutes from "./routes/questionRoutes.js";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import submissionRoutes from "./routes/submissionRoutes.js";
+import interviewRoutes from "./routes/interviewRoutes.js";
 import { auth } from "./middlewares.js";
 // import submissionRoutes from "./routes/submissionRoutes.js";
-
-
-
-
 
 dotenv.config();
 
@@ -30,9 +28,11 @@ app.use(
 
 app.use(express.json());
 
-app.use("/api/question", auth ,questionRoutes);
-app.use("/api/auth",authRoutes);
-app.use("/api/user",auth, userRoutes);
+app.use("/api/question", auth, questionRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/user", auth, userRoutes);
+app.use("/api/submission", submissionRoutes);
+app.use("/api/interview", interviewRoutes);
 
 // Start the server
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
